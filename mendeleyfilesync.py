@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 """
 Synchronise the location of files in the Mendeley database using a
 relative base path by storing the locations in a text database that
@@ -203,8 +203,8 @@ class MendeleyDB(object):
         # Link file to document
         self.execute_unsafe(
             "INSERT INTO DocumentFiles "
-            "(documentId, hash, remoteUrl, unlinked, downloadRestricted) "
-            "VALUES (?, ?, '', 'false', 'false')",
+            "(documentId, hash, unlinked, downloadRestricted) "
+            "VALUES (?, ?, 'false', 'false')",
             (document_id, document_file.hash))
 
     def update_file(self, document_file):
